@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Algorithms - R Playground</title><link rel="stylesheet" href="./style.css"></head><body><h1>
+  <a id="title-link" href=".">The Algorithms Playground - <span id="language">R</span></a>
+</h1>
+<p class="languages">
+  Switch to:
+  <a href="https://hatemhosny.github.io/thealgorithms-javascript/">JavaScript</a>
+  -
+  <a href="https://hatemhosny.github.io/thealgorithms-javascript/?lang=ts">TypeScript</a>
+  -
+  <a href="https://hatemhosny.github.io/thealgorithms-python/">Python</a>
+</p>
+<p>
+  Algorithm:
+  <select id="algorithm-select"></select>
+</p>
+<p>(<a target="_blank" id="source-link">Source</a>)</p>
+<div id="container" style="height: 80vh"></div>
+
+<div id="footer">
+  <p>
+    This page was built in
+    <a href="https://livecodes.io/" target="_blank">LiveCodes</a>
+    and
+    <a href="https://livecodes.io/docs/features/deploy" target="_blank">deployed</a>
+    to GitHub Pages.
+  </p>
+  <p>
+    <a href="https://livecodes.io/?activeEditor=script&amp;x=https://github.com/hatemhosny/thealgorithms-r/tree/gh-pages/src" target="_blank">Edit in LiveCodes</a>
+    -
+    <a href="https://github.com/hatemhosny/thealgorithms-r/" target="_blank">View on GitHub</a>
+  </p>
+</div>
+
+<script>
+  const algorithms = [
+    "association_algorithms/apriori",
+    "classification_algorithms/decision_tree",
+    "classification_algorithms/gradient_boosting_algorithms",
+    "classification_algorithms/knn",
+    "classification_algorithms/lasso",
+    "classification_algorithms/light_gbm",
+    "classification_algorithms/naive_bayes",
+    "classification_algorithms/random_forest",
+    "classification_algorithms/svm",
+    "classification_algorithms/xgboost",
+    "clustering_algorithms/dbscan_clustering",
+    "clustering_algorithms/gmm",
+    "clustering_algorithms/heirarchical_clustering",
+    "clustering_algorithms/k_means",
+    "clustering_algorithms/kmeans_clustering",
+    "clustering_algorithms/kmeans_raw_r",
+    "clustering_algorithms/pam",
+    "data_manipulation/label_encode",
+    "data_manipulation/one_hot_encode",
+    "data_preprocessing/data_normalization_standardization",
+    "data_preprocessing/data_processing",
+    "data_preprocessing/dimensionality_reduction_algorithms",
+    "data_preprocessing/k_folds",
+    "data_preprocessing/lasso",
+    "mathematics/amicable_numbers",
+    "mathematics/armstrong_number",
+    "mathematics/bisection_method",
+    "mathematics/euclidean_distance",
+    "mathematics/factorial",
+    "mathematics/fibonacci",
+    "mathematics/first_n_fibonacci",
+    "mathematics/hamming_distance",
+    "mathematics/josephus_problem",
+    "mathematics/perfect_number",
+    "mathematics/perfect_square",
+    "mathematics/pi_monte_carlo",
+    "mathematics/prime",
+    "regression_algorithms/ann",
+    "regression_algorithms/gradient_boosting_algorithms",
+    "regression_algorithms/knn",
+    "regression_algorithms/light_gbm",
+    "regression_algorithms/linear_regression",
+    "regression_algorithms/linearregressionrawr",
+    "regression_algorithms/logistic_regression",
+    "regression_algorithms/logistic_regression_2",
+    "regression_algorithms/multiple_linear_regression",
+    "sorting_algorithms/bubble_sort",
+    "sorting_algorithms/comb_sort",
+    "sorting_algorithms/counting_sort",
+    "sorting_algorithms/heap_sort",
+    "sorting_algorithms/insertion_sort",
+    "sorting_algorithms/merge_sort",
+    "sorting_algorithms/quick_sort",
+    "sorting_algorithms/radix_sort",
+    "sorting_algorithms/selection_sort",
+    "sorting_algorithms/stooge_sort"
+  ];
+
+  const params = new URLSearchParams(window.location.search);
+  window.lang = {
+    name: "r",
+    title: "R",
+    ext: "r",
+    repo: "https://github.com/TheAlgorithms/R",
+    algorithms,
+    defaultAlgorithm: "sorting_algorithms/bubble_sort",
+  };
+
+  window.algorithmSelect = document.getElementById("algorithm-select");
+  document.getElementById("source-link").href = window.lang.repo;
+  document.getElementById("language").innerText = window.lang.title;
+
+  algorithms.forEach((algorithm) => {
+    const option = document.createElement("option");
+    option.value = algorithm;
+    option.innerText = algorithm;
+    option.id = algorithm;
+    algorithmSelect.appendChild(option);
+  });
+
+  const selected =
+    (params.get("algorithm") &&
+      algorithms.find((algorithm) => algorithm === params.get("algorithm"))) ||
+    window.lang.defaultAlgorithm;
+  document.getElementById(selected).selected = true;
+</script>
+<script src="./script.js" type="module"></script></body></html>
